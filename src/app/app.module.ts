@@ -3,16 +3,34 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { PostCardComponent } from './shared/components/post-card/post-card.component';
+import { HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { FeaturedPostsSliderComponent } from './home/featured-posts-slider/featured-posts-slider.component';
+import { AboutComponent } from './about/about.component';
+import { PostComponent } from './post/post.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    PostCardComponent,
+    FooterComponent,
+    FeaturedPostsSliderComponent,
+    AboutComponent,
+    PostComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

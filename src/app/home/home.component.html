@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- script
+    ================================================== -->
+    <script src="../../assets/js/modernizr.js"></script>
+
+
+</head>
+
+<body id="top">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+    
+    <header class="s-header">
+
+        <div class="row s-header__content">
+
+            <div class="s-header__logo">
+                <a class="logo" href="index.html">
+                </a>
+            </div>
+            <nav class="s-header__nav-wrap">
+
+                <h2 class="s-header__nav-heading h6">Navegacion De Sitio </h2>
+
+                <ul class="s-header__nav">
+                    <li class="current"><a href="/" title="">Casa</a></li>
+                    <li><a href="/about" title="">Sobre</a></li>
+                    <li><a href="/contact" title="">Contacto</a></li>
+                </ul> <!-- end header__nav -->
+
+                <a  title="Close Menu" class="s-header__overlay-close close-mobile-menu">Close</a>
+
+            </nav> <!-- end header__nav-wrap -->
+                   
+            <a class="s-header__toggle-menu"  title="Menu"><span>Menu</span></a>
+            
+            
+        </div> <!-- end s-header__content -->
+
+    </header> <!-- end header -->
+
+
+    <!-- masonry
+    ================================================== -->
+    
+    <app-featured-posts-slider></app-featured-posts-slider>
+                        
+    <section class="s-bricks">
+
+        <div class="masonry" *ngIf="posts[0]">
+            <div class="bricks-wrapper h-group">
+ 
+                <div class="grid-sizer"></div>
+
+                <div class="brick entry featured-grid animate-this">
+                    <div class="entry__content">
+
+
+                    </div> <!-- end entry content -->
+                </div> <!-- end entry, featured grid -->
+                <app-post-card *ngFor ="let post of posts" [post] ="post">
+
+                </app-post-card>
+                
+            </div> <!-- end brick-wrapper --> 
+ 
+        </div> <!-- end masonry -->
+
+    </section> <!-- end s-bricks -->
+
+
+    <!-- footer
+    ================================================== -->
+    <app-footer></app-footer>
+
+
+</body>
+
+</html>

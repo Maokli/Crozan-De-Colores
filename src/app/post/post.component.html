@@ -1,0 +1,67 @@
+
+<header class="s-header">
+
+    <div class="row s-header__content">
+
+        <div class="s-header__logo">
+            <a class="logo" href="index.html">
+            </a>
+        </div>
+        <nav class="s-header__nav-wrap">
+
+            <h2 class="s-header__nav-heading h6">Navegacion De Sitio </h2>
+
+            <ul class="s-header__nav">
+                <li><a href="/" title="">Casa</a></li>
+                <li><a href="/about" title="">Sobre</a></li>
+                <li><a href="/contact" title="">Contacto</a></li>
+            </ul> <!-- end header__nav -->
+
+            <a  title="Close Menu" class="s-header__overlay-close close-mobile-menu">Close</a>
+
+        </nav> <!-- end header__nav-wrap -->
+               
+        <a class="s-header__toggle-menu"  title="Menu"><span>Menu</span></a>
+        
+        
+    </div> <!-- end s-header__content -->
+
+</header> <!-- end header -->
+
+<div class="row content">
+  <div class="column large-12">
+      <article class="s-post entry format-standard">
+          <div class="s-content__media">
+              <div  *ngIf="post" class="s-content__post-thumb">
+                  <img src="{{post.image}}">
+              </div>
+          </div> <!-- end s-content__media -->
+
+          <div class="s-content__primary">
+
+              <h2  *ngIf="post" class="s-content__title s-content__title--post">{{post.title}}</h2>
+
+              <ul  *ngIf="post" class="s-content__post-meta">
+                  <li class="date">{{date | date:'longDate'}}</li>
+              </ul>
+
+              <p class="lead"  *ngIf="post"> {{post.intro}}  </p> 
+              <div class="post">
+                  
+              </div>
+              <ng-container  *ngIf="post && post.authorObject">
+              <div class="s-content__author">
+                  <img src="{{post.authorObject.Image}}" alt="">
+
+                  <div class="about">
+                      <h5><a href="#">{{post.authorObject.Name}}</a></h5>
+                      <p>{{post.authorObject.About}}</p>
+                  </div>
+              </div> <!-- end s-content__author -->
+            </ng-container>
+          </div> <!-- end s-content__primary -->
+      </article>
+  </div> <!-- end column -->
+</div> <!-- end row -->
+
+<app-footer></app-footer>

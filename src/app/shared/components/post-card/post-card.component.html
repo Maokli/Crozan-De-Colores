@@ -1,0 +1,29 @@
+<article class="brick entry format-standard animate-this" data-aos="zoom-in"
+data-aos-duration="1000" data-aos-delay="500">
+    
+  <div class="entry__thumb">
+      <a href="/{{post._uid}}" class="thumb-link">
+          <img src="{{post.image}}" 
+               srcset="" alt="">
+      </a>
+  </div> <!-- end entry__thumb -->
+
+  <div class="entry__text">
+      <div class="entry__header">
+
+          <div class="entry__meta">
+              <span class="entry__cat-links">
+              </span>
+          </div>
+
+          <h1 class="entry__title"><a routerLink="/{{post._uid}}">{{post.title}}</a></h1>
+          
+      </div>
+      <div class="entry__excerpt">
+          <p>
+              {{post.intro}}
+          </p>
+      </div>
+  </div> <!-- end entry__text -->
+
+</article> <!-- end entry -->

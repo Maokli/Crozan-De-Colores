@@ -1,0 +1,17 @@
+
+  <ngb-carousel *ngIf ="featuredPosts">
+    <ng-template ngbSlide *ngFor="let post of featuredPosts">
+      <a href="/{{post.content._uid}}">
+        <div class="picsum-img-wrapper">
+        <img src="{{post.content.image}}" alt="Angular Carousel 1">
+        <div class="f-slide__overlay"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3>{{post.content.title}}</h3>
+        <p *ngIf="post && post.content.authorObject">{{post.first_published_at | date:'longDate'}} {{post.content.authorObject.Name}}</p>
+      </div>
+    </a>
+    </ng-template>
+  </ngb-carousel> 
+  
+  
