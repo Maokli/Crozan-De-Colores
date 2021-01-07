@@ -37,17 +37,13 @@
 
         <div class="row s-header__content">
 
-            <div class="s-header__logo">
-                <a class="logo" href="/">
-                </a>
-            </div>
             <nav class="s-header__nav-wrap">
 
                 <h2 class="s-header__nav-heading h6">Navegacion De Sitio </h2>
 
                 <ul class="s-header__nav">
-                    <li class="current"><a href="/" title="">Casa</a></li>
-                    <li><a href="/about" title="">Sobre</a></li>
+                    <li class="current"><a href="/" title="">Página Principal</a></li>
+                    <li><a href="/about" title="">Sobre Nosotros</a></li>
                     <li><a href="/contact" title="">Contacto</a></li>
                 </ul> <!-- end header__nav -->
 
@@ -71,7 +67,7 @@
     <section class="s-bricks">
 
         <div class="masonry" *ngIf="posts[0]">
-            <div class="bricks-wrapper h-group">
+            <div class="bricks-wrapper">
  
                 <div class="grid-sizer"></div>
 
@@ -81,9 +77,9 @@
 
                     </div> <!-- end entry content -->
                 </div> <!-- end entry, featured grid -->
-                <app-post-card *ngFor ="let post of posts" [post] ="post">
+                <div post-card *ngFor ="let post of posts" [post] ="post">
 
-                </app-post-card>
+                </div>
                 
             </div> <!-- end brick-wrapper --> 
  

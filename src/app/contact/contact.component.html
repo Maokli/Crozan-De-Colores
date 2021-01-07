@@ -2,18 +2,13 @@
 
   <div class="row s-header__content">
 
-      <div class="s-header__logo">
-          <a class="logo" href="/">
-            <img src="" alt="">
-          </a>
-      </div>
       <nav class="s-header__nav-wrap">
 
           <h2 class="s-header__nav-heading h6">Navegacion De Sitio </h2>
 
           <ul class="s-header__nav">
-              <li><a href="/" title="">Casa</a></li>
-              <li><a href="/about" title="">Sobre</a></li>
+              <li><a href="/" title="">Página Principal</a></li>
+              <li><a href="/about" title="">Sobre Nosotros</a></li>
               <li class="current"><a href="/contact" title="">Contacto</a></li>
           </ul> <!-- end header__nav -->
 
@@ -36,19 +31,19 @@
               <div class="s-content__primary">
 
                   <h1 class="s-content__title">Póngase En Contacto Con Nosotros.</h1>	
-                  <form id="cForm" class="s-content__form" name="contact" method="POST" data-netlify="true">
+                  <form id="cForm" class="s-content__form" [formGroup]='contactForm' name="contact" id='contact-form' method="post" (ngSubmit)="onSubmit()">
                       <fieldset>
 
                           <div class="form-field">
-                              <input name="cName" type="text" id="cName" class="h-full-width" placeholder="Tu nombre" value="">
+                              <input name="name" type="text" id="cName" formControlName="name" class="h-full-width" placeholder="Tu nombre" value="" required>
                           </div>
 
                           <div class="form-field">
-                              <input name="cEmail" type="text" id="cEmail" class="h-full-width" placeholder="Tu Email" value="">
+                              <input name="email" type="text" formControlName="email" id="cEmail" class="h-full-width" placeholder="Tu Email" value="" required>
                           </div>
 
                           <div class="message form-field">
-                              <textarea name="cMessage" id="cMessage" class="h-full-width" placeholder="Tu Mensaje" ></textarea>
+                              <textarea name="message" formControlName="message" id="cMessage" class="h-full-width" placeholder="Tu Mensaje" required></textarea>
                           </div>
 
                           <button type="submit" class="submit btn btn--primary btn--medium h-full-width">Enviar</button>

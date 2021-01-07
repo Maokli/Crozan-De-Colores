@@ -1,9 +1,16 @@
 
   <ngb-carousel *ngIf ="featuredPosts">
+  <ng-template ngbSlide>
+      <a href="/">
+        <div class="picsum-img-wrapper">
+        <img src="../../../assets/logo.png" alt="Corazon De Colores">
+      </div>
+    </a>
+    </ng-template>
     <ng-template ngbSlide *ngFor="let post of featuredPosts">
       <a href="/{{post.content._uid}}">
         <div class="picsum-img-wrapper">
-        <img src="{{post.content.image}}" alt="Angular Carousel 1">
+        <img src="{{post.content.image}}" alt="{{post.content.title}}">
         <div class="f-slide__overlay"></div>
       </div>
       <div class="carousel-caption">

@@ -10,7 +10,7 @@ import { IAuthorResponse } from '../models/author-response';
 })
 export class PostsService {
   baseUrl = 'https://api.storyblok.com/v1/cdn/stories/';
-  token = 'VFoIGzBT8BoQlSFm1WUB9Qtt';
+  token = '';
   options = {
     headers: {
       'Cache-Control': 'no-cache',
