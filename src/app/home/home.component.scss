@@ -1,5 +1,9 @@
 
-
+ngb-carousel{
+  width: 100vw !important;
+  margin: 0 auto;
+  outline: none;
+}
 
 @media only screen and (min-width: 700px) {
   app-post-card{

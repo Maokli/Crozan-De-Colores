@@ -1,7 +1,9 @@
-.s-footer__site-links {
-  width: 30vw !important;
-  max-width: 100% !important;
-}
-.large-2 {
-  flex: none;
+@media only screen and (min-width: 700px) {
+  .s-footer__site-links {
+    width: 30vw !important;
+    max-width: 100% !important;
+  }
+  .large-2 {
+    flex: none;
+  }
 }

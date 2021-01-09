@@ -5,21 +5,20 @@ import { IPost } from 'src/app/models/post';
 @Component({
   selector: '[post-card]',
   templateUrl: './post-card.component.html',
-  styleUrls: ['./post-card.component.scss']
+  styleUrls: ['./post-card.component.scss'],
 })
 export class PostCardComponent implements OnInit {
-  @Input() post: IPost
-  constructor(private el: ElementRef) { }
+  @Input() post: IPost;
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
-    var nativeElement: HTMLElement = this.el.nativeElement,
-            parentElement: HTMLElement = nativeElement.parentElement;
-        // move all children out of the element
-        while (nativeElement.firstChild) {
-            parentElement.insertBefore(nativeElement.firstChild, nativeElement);
-        }
-        // remove the empty element(the host)
-        parentElement.removeChild(nativeElement);
+    const nativeElement: HTMLElement = this.el.nativeElement;
+    const parentElement: HTMLElement = nativeElement.parentElement;
+    // move all children out of the element
+    while (nativeElement.firstChild) {
+      parentElement.insertBefore(nativeElement.firstChild, nativeElement);
+    }
+    // remove the empty element(the host)
+    parentElement.removeChild(nativeElement);
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { IAuthor } from 'src/app/models/author-story';
 import { IPost } from 'src/app/models/post';
 import { IPostStory} from 'src/app/models/post-story';
@@ -13,7 +13,7 @@ export class FeaturedPostsSliderComponent implements OnInit {
 
   featuredPosts: IPostStory[];
   featuredPost: IPostStory;
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService, private el: ElementRef) { }
 
   ngOnInit(): void {
     this.getFeaturedPosts();

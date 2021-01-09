@@ -1,7 +1,10 @@
 ngb-carousel{
-  width: 100vw;
-  margin: 0 auto;
   outline: none;
+}
+@media only screen and (min-width: 700px) {
+  img {
+    height: 80vh;
+  }
 }
 .picsum-img-wrapper img{
   width: 100%;
