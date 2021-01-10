@@ -1,62 +1,63 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ICategory } from '../models/category-response';
+import { IPost } from '../models/post';
 import { PostsService } from '../services/posts-service.service';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
-  contactForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    message: new FormControl(''),
-  });
+  posts: IPost[] = [];
   categories: ICategory[] = [];
-
-  constructor(
-    private http: HttpClient,
-    private postService: PostsService
-  ) {};
-
-  onSubmit() {
-    const body = new HttpParams()
-    .set('form-name', 'contact')
-    .append('name', this.contactForm.value.name)
-    .append('email', this.contactForm.value.email)
-    .append('message', this.contactForm.value.message)
-    this.http.post('/', body.toString(), {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}).subscribe(
-      res => {},
-      err => {
-        if (err instanceof ErrorEvent) {
-          //client side error
-          alert("Something went wrong when sending your message.");
-          console.log(err.error.message);
-        } else {
-          //backend error. If status is 200, then the message successfully sent
-          if (err.status === 200) {
-            alert("Your message has been sent!");
-          } else {
-            alert("Something went wrong when sending your message.");
-            console.log('Error status:');
-            console.log(err.status);
-            console.log('Error body:');
-            console.log(err.error);
-          };
-        };
-      }
-    );
-  };
+  category: ICategory;
+  constructor(private postService: PostsService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.GetCategory();
+    this.GetPosts();
     this.MobileNav();
     this.GetAllCategories();
   }
-
+  GetCategory() {
+    this.postService.GetCategory(this.activatedRoute.snapshot.paramMap.get('uid'))
+    .subscribe(response => {
+      console.log(response);
+      this.category = response.stories[0].content;
+    })
+  }
+  GetPosts() {
+    this.postService.GetPosts().subscribe(response => {
+      response.stories.forEach(story => {
+        this.posts.push(story.content);
+      });
+      this.GetPostCategory();
+    })
+  }
+  GetPostCategory(){
+      this.posts.forEach(post => {
+        const postCategories = [];
+        let isNotCategory = 0;
+        post.Categories.forEach(uid =>{
+          this.postService.GetPostCategory(uid).subscribe(response =>{
+            postCategories.push(response.stories[0].content);
+            if(response.stories[0].content.Name !== this.category.Name){
+              isNotCategory++;
+              console.log(isNotCategory)
+            }
+            if(isNotCategory === post.Categories.length){
+              console.log('not category')
+              this.posts.splice(this.posts.indexOf(post),1);
+            }
+          });
+        });
+        post.CategoryObjects = postCategories;
+        console.log(postCategories);
+      })
+  }
   MobileNav(){
     const navOpenButton = document.querySelector('.s-header__toggle-menu');
     const navCloseButton = document.querySelector('.close-mobile-menu');

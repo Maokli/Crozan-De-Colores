@@ -8,6 +8,14 @@
 
           <ul class="s-header__nav">
               <li><a href="/" title="">Página Principal</a></li>
+              <li class="has-children">
+                <a title="">Categorías</a>
+                <ul class="sub-menu">
+                    <li *ngFor="let category of categories">
+                        <a href="/category/{{category._uid}}">{{category.Name}}</a>
+                    </li>
+                </ul>
+            </li>
               <li><a href="/about" title="">Sobre Nosotros</a></li>
               <li class="current"><a href="/contact" title="">Contacto</a></li>
           </ul> <!-- end header__nav -->

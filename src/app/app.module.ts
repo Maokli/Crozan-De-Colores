@@ -13,6 +13,7 @@ import { PostComponent } from './post/post.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FeaturedPostsSliderComponent,
     AboutComponent,
     PostComponent,
-    ContactComponent
+    ContactComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

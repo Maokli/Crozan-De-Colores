@@ -5,6 +5,7 @@ import { PostsService } from '../services/posts-service.service';
 import StoryblokClient from 'storyblok-js-client';
 import { ChangeDetectorRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ICategory } from '../models/category-response';
 
 @Component({
   selector: 'app-post',
@@ -16,7 +17,7 @@ export class PostComponent implements OnInit {
   post: IPost;
   date: string;
   storyBlok;
-  showAuthor;
+  categories: ICategory[] = [];
   constructor(private activatedRoute: ActivatedRoute,
               private postsService: PostsService,
               @Inject(DOCUMENT) private document: any) { }
@@ -29,12 +30,11 @@ export class PostComponent implements OnInit {
         type: 'memory'
       }
     });
+    this.GetAllCategories();
   }
   ngAfterViewInit(){
     this.GetPost();
     this.MobileNav();
-    let content = document.querySelector('body app-root app-post .content .column');
-    console.log(content);
   }
 
   GetPost(){
@@ -80,5 +80,34 @@ export class PostComponent implements OnInit {
     navCloseButton.addEventListener('click', () => {
       navbar.style.maxHeight = '0vh';
     })
+    if(screen.width < 800)
+      this.childrenNavAnimation();
+  }
+  childrenNavAnimation() {
+    const hasChlidrenBtn = document.querySelector('.has-children');
+    const children = hasChlidrenBtn.querySelector('ul');
+    let isShown = false;
+    children.style.display ='block';
+    children.style.overflow = 'hidden';
+    children.style.maxHeight = '0vh';
+    children.style.padding = '0';
+    children.style.transitionDuration ='1s';
+    hasChlidrenBtn.addEventListener('click', () => {
+      isShown = !isShown;
+      if(isShown){
+        children.style.maxHeight = '0vh';
+      }
+      else {
+        children.style.maxHeight = '100vh';
+      }
+
+    })
+  }
+  GetAllCategories() {
+    this.postsService.GetCategories().subscribe(response => {
+      response.stories.forEach(story => {
+        this.categories.push(story.content);
+      });
+    });
   }
 }

@@ -4053,8 +4053,6 @@ html::-webkit-scrollbar {
          visibility: visible;
          background-color: transparent;
          padding: 0 0 1.8rem 0;
-         -webkit-transition: none !important;
-         transition: none !important;
      }
      .s-header__nav li.has-children>a::after {
          top: 27px;

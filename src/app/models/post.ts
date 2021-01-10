@@ -1,4 +1,5 @@
 import { IAuthor } from "./author-story";
+import { ICategory } from "./category-response";
 import { IMarkup } from "./markup";
 
 export interface IPost {
@@ -9,6 +10,9 @@ export interface IPost {
   intro: string;
   long_text: string;
   author: string;
+  Categories: string[];
+  CategoryObjects: ICategory[];
+  isCategory: boolean;
   markup: IMarkup;
   authorObject: IAuthor;
 }

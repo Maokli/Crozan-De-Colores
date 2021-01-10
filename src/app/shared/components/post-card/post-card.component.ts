@@ -20,5 +20,6 @@ export class PostCardComponent implements OnInit {
     }
     // remove the empty element(the host)
     parentElement.removeChild(nativeElement);
+    console.log(this.post);
   }
 }

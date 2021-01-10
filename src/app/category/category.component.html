@@ -42,12 +42,12 @@
                 <h2 class="s-header__nav-heading h6">Navegacion De Sitio </h2>
 
                 <ul class="s-header__nav">
-                    <li class="current"><a href="/" title="">Página Principal</a></li>
-                    <li class="has-children">
+                    <li><a href="/" title="">Página Principal</a></li>
+                    <li class="has-children current">
                         <a title="">Categorías</a>
                         <ul class="sub-menu">
                             <li *ngFor="let category of categories">
-                                <a href="/category/{{category._uid}}">{{category.Name}}</a>
+                                <a href="">{{category.Name}}</a>
                             </li>
                         </ul>
                     </li>
@@ -73,8 +73,9 @@
     <app-featured-posts-slider></app-featured-posts-slider>
                         
     <section class="s-bricks">
-
+        
         <div class="masonry" *ngIf="posts[0]">
+            <h1 *ngIf="category"> {{category.Name}}</h1>
             <div class="bricks-wrapper">
  
                 <div class="grid-sizer"></div>

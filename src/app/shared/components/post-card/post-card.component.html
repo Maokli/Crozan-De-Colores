@@ -11,10 +11,13 @@ data-aos-duration="1000" data-aos-delay="500">
   <div class="entry__text">
       <div class="entry__header">
 
+        <ng-container  *ngIf="post.CategoryObjects">
           <div class="entry__meta">
               <span class="entry__cat-links">
+                <a *ngFor="let category of post.CategoryObjects" href="/category/{{category._uid}}">{{category.Name}}</a>
               </span>
           </div>
+        </ng-container>
 
           <h1 class="entry__title"><a routerLink="/{{post._uid}}">{{post.title}}</a></h1>
           
