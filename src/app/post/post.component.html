@@ -14,7 +14,7 @@
             <ul class="s-header__nav">
                 <li><a href="/" title="">Página Principal</a></li>
                 <li class="has-children">
-                    <a title="">Categorías</a>
+                    <a style="color: rgba(0, 0, 0, 0.5);" title="">Categorías</a>
                     <ul class="sub-menu">
                         <li *ngFor="let category of categories">
                             <a href="/category/{{category._uid}}">{{category.Name}}</a>
@@ -70,6 +70,9 @@
           </div> <!-- end s-content__primary -->
       </article>
       <app-featured-posts-slider></app-featured-posts-slider>
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+             
   </div> <!-- end column -->
 </div> <!-- end row -->
 

@@ -47,7 +47,7 @@
                         <a title="">Categorías</a>
                         <ul class="sub-menu">
                             <li *ngFor="let category of categories">
-                                <a href="">{{category.Name}}</a>
+                                <a href="/category/{{category._uid}}">{{category.Name}}</a>
                             </li>
                         </ul>
                     </li>
@@ -74,9 +74,10 @@
                         
     <section class="s-bricks">
         
-        <div class="masonry" *ngIf="posts[0]">
+        <div class="masonry">
             <h1 *ngIf="category"> {{category.Name}}</h1>
-            <div class="bricks-wrapper">
+            <h5 *ngIf="!posts[0]">Lo sentimos, todavía no hay publicaciones para esta categoría.</h5>
+            <div class="bricks-wrapper"  *ngIf="posts[0]">
  
                 <div class="grid-sizer"></div>
 
@@ -91,7 +92,6 @@
                 </div>
                 
             </div> <!-- end brick-wrapper --> 
- 
         </div> <!-- end masonry -->
 
     </section> <!-- end s-bricks -->
