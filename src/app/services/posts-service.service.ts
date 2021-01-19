@@ -11,7 +11,7 @@ import { ICategoryResponse } from '../models/category-response';
 })
 export class PostsService {
   baseUrl = 'https://api.storyblok.com/v1/cdn/stories/?version=published&token=';
-  token = '';
+  token = 'VFoIGzBT8BoQlSFm1WUB9Qtt';
   options = {
     headers: {
       'Cache-Control': 'no-cache',
